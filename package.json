@@ -1,17 +1,13 @@
 {
-  "name": "blog-monorepo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "dev-partner-monorepo",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "concurrently -n server,web,admin -c auto \"pnpm --filter server start:dev\" \"pnpm --filter web dev\" \"pnpm --filter admin dev\""
+    "dev": "concurrently -n web,admin,server -c auto \"pnpm -C web dev\" \"pnpm -C admin dev\" \"pnpm -C server start:dev\"",
+    "dev:web": "pnpm -C web dev",
+    "dev:admin": "pnpm -C admin dev",
+    "dev:server": "pnpm -C server start:dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.6.5",
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.0.0"
   }
 }
